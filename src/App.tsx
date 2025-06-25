@@ -25,8 +25,8 @@ function App() {
       const component = active.data.current?.component;
       const componentType = active.data.current?.type;
 
-      // Only handle NEW components from sidebar (not placed components since they're no longer draggable)
-      if (component && componentType === 'component') {
+      // checlk to see if we're dragging a new component from list ('component')
+      if (componentType === 'component') {
         // Get the SystemBoard element to calculate relative position
         const systemBoardElement = document.querySelector(
           '.system-board-container'
@@ -53,6 +53,22 @@ function App() {
             y: dropY,
           };
           setPlacedComponents((prev) => [...prev, newComponent]);
+        }
+      } // check if we're draggin an existing placed component ('placed-component')
+      else if (componentType === 'placed-component') {
+        // Handle repositioning of EXISTING placed components
+        if (event.delta) {
+          setPlacedComponents((prev) =>
+            prev.map((comp) =>
+              comp.uniqueId === component.uniqueId
+                ? {
+                    ...comp,
+                    x: Math.max(10, comp.x + event.delta.x),
+                    y: Math.max(10, comp.y + event.delta.y),
+                  }
+                : comp
+            )
+          );
         }
       }
     }
