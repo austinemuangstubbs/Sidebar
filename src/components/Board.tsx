@@ -4,9 +4,13 @@ import ScratchPad from './ScratchPad';
 
 interface BoardProps {
   placedComponents: any[];
+  onDeleteComponent: (uniqueId: string) => void;
 }
 
-const Board: React.FC<BoardProps> = ({ placedComponents }) => {
+const Board: React.FC<BoardProps> = ({
+  placedComponents,
+  onDeleteComponent,
+}) => {
   const [activeTab, setActiveTab] = useState<'SystemBoard' | 'ScratchPad'>(
     'SystemBoard'
   );
@@ -45,7 +49,10 @@ const Board: React.FC<BoardProps> = ({ placedComponents }) => {
       {/* Board content container */}
       <div className='flex-1 p-4 overflow-y-auto board-content-container'>
         {activeTab === 'SystemBoard' ? (
-          <SystemBoard placedComponents={placedComponents} />
+          <SystemBoard
+            placedComponents={placedComponents}
+            onDeleteComponent={onDeleteComponent}
+          />
         ) : (
           <ScratchPad />
         )}

@@ -55,9 +55,9 @@ const DraggableComponent: React.FC<DraggableComponentProps> = ({
         ${component.color} 
         border border-gray-300 rounded-lg p-3
         flex items-center space-x-2 
-        cursor-grab active:cursor-grabbing  // Shows grab cursor
+        cursor-grab active:cursor-grabbing  
         hover:shadow-md transition-shadow
-        ${isDragging ? 'opacity-50' : ''}   // Fades while dragging
+        ${isDragging ? 'opacity-50' : ''}   
       `}
     >
       <span className='text-lg'>{component.icon}</span>
