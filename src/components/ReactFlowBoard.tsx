@@ -17,17 +17,21 @@ import {
   Connection,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import { SystemIcons } from '../assets';
 
-// Custom node that keeps the emoji + color from the component library
+// Custom node that renders the SVG icon based on the component id
 const CustomNode: React.FC<NodeProps> = ({ data }) => {
+  const IconComponent = SystemIcons[data.id as keyof typeof SystemIcons] as React.FC<React.SVGProps<SVGSVGElement>> | undefined;
+  const ICON_SIZE = 24;
+
   return (
     <div
-      className={
-        `${data.color} border border-gray-400 rounded-lg px-3 py-2 shadow-md flex items-center space-x-1`
-      }
+      className={`border border-gray-400 rounded-lg px-3 py-2 shadow-md flex flex-col items-center space-y-1 bg-white`}
     >
-      <span className='text-sm'>{data.icon}</span>
-      <span className='text-xs font-medium text-gray-700'>{data.name}</span>
+      {IconComponent && (
+        <IconComponent width={ICON_SIZE} height={ICON_SIZE} className='flex-shrink-0' />
+      )}
+      <span className='text-xs font-medium text-gray-700 text-center'>{data.name}</span>
     </div>
   );
 };
@@ -82,8 +86,8 @@ const ReactFlowBoard: React.FC<ReactFlowBoardProps> = ({
         type: 'custom',
         position,
         data: {
+          id: component.id,
           name: component.name,
-          icon: component.icon,
           color: component.color,
         },
       };

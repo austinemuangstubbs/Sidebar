@@ -12,7 +12,6 @@ export const SystemIcons = {
       <circle cx="72" cy="38" r="4" fill="#90CAF9" stroke="#1E88E5" strokeWidth="1"/>
       <line x1="90" y1="38" x2="96" y2="38" stroke="#1E88E5" strokeWidth="2" strokeLinecap="round"/>
       <polygon points="96,38 92,36 92,40" fill="#1E88E5"/>
-      <text x="50" y="90" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fill="#1E88E5">Message Queue</text>
     </svg>
   ),
 
@@ -30,7 +29,6 @@ export const SystemIcons = {
       <line x1="50" y1="10" x2="50" y2="25" stroke="#1e78c8" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
       <line x1="35" y1="55" x2="25" y2="65" stroke="#1e78c8" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
       <line x1="65" y1="55" x2="75" y2="65" stroke="#1e78c8" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
-      <text x="50" y="88" fontSize="10" textAnchor="middle" fill="#1e78c8">Load Balancer</text>
     </svg>
   ),
 
@@ -41,7 +39,6 @@ export const SystemIcons = {
       <polygon points="30,40 24,36 24,44" fill="#1e6fb8"/>
       <line x1="70" y1="40" x2="95" y2="40" stroke="#1e6fb8" strokeWidth="2" strokeLinecap="round"/>
       <polygon points="95,40 89,36 89,44" fill="#1e6fb8"/>
-      <text x="50" y="92" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#1e6fb8">API Gateway</text>
     </svg>
   ),
 
@@ -57,7 +54,6 @@ export const SystemIcons = {
       <rect x="64" y="55" width="16" height="12" rx="2" fill="#f3ecff" stroke="#7a45ff" strokeWidth="1.5"/>
       <line x1="50" y1="50" x2="28" y2="55" stroke="#7a45ff" strokeWidth="1.5" markerEnd="url(#arrow)"/>
       <line x1="50" y1="50" x2="72" y2="55" stroke="#7a45ff" strokeWidth="1.5" markerEnd="url(#arrow)"/>
-      <text x="50" y="90" fontSize="10" textAnchor="middle" fill="#7a45ff" fontFamily="Arial, sans-serif">CDN</text>
     </svg>
   ),
 
@@ -73,7 +69,6 @@ export const SystemIcons = {
       <ellipse cx="50" cy="40" rx="25" ry="8" fill="none" stroke="#1f77ff" strokeWidth="1"/>
       <ellipse cx="50" cy="40" rx="18" ry="25" fill="none" stroke="#1f77ff" strokeWidth="1" strokeDasharray="3 2"/>
       <line x1="30" y1="65" x2="70" y2="75" stroke="#1f77ff" strokeWidth="2" markerEnd="url(#arrow)"/>
-      <text x="50" y="95" textAnchor="middle" fontSize="11" fontFamily="Arial, sans-serif" fill="#1f77ff">DNS</text>
     </svg>
   ),
 
@@ -94,7 +89,6 @@ export const SystemIcons = {
       <rect x="75" y="20" width="18" height="12" rx="2" fill="#e0f7ff" stroke="#0277bd" strokeWidth="1" />
       <rect x="75" y="35" width="18" height="12" rx="2" fill="#e0f7ff" stroke="#0277bd" strokeWidth="1" />
       <rect x="75" y="50" width="18" height="12" rx="2" fill="#e0f7ff" stroke="#0277bd" strokeWidth="1" />
-      <text x="50" y="88" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="11" fill="#000">Reverse Proxy</text>
     </svg>
   ),
 
@@ -116,7 +110,6 @@ export const SystemIcons = {
         <circle cx="80" cy="55" r="6"/>
         <circle cx="50" cy="35" r="7"/>
       </g>
-      <text x="50" y="90" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000">Service Registry</text>
     </svg>
   ),
 
@@ -130,7 +123,6 @@ export const SystemIcons = {
       <line x1="35" y1="28" x2="65" y2="28" stroke="#0A5275" strokeWidth="2" strokeLinecap="round"/>
       <rect x="47" y="36" width="6" height="20" fill="#E6F2F8" stroke="#0A5275" strokeWidth="2"/>
       <rect x="40" y="56" width="20" height="8" fill="#E6F2F8" stroke="#0A5275" strokeWidth="2"/>
-      <text x="50" y="96" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#0A5275">Circuit Breaker</text>
     </svg>
   ),
 
@@ -138,7 +130,6 @@ export const SystemIcons = {
     <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <path d="M50 60 L32 45 C21 36 20 23 29 15 C37 7 48 10 50 20 C52 10 63 7 71 15 C80 23 79 36 68 45 L50 60 Z" fill="#E8F8F5" stroke="#28A745" strokeWidth="2" strokeLinejoin="round"/>
       <polyline points="15 35 30 35 35 28 45 45 60 45" fill="none" stroke="#28A745" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <text x="50" y="92" fontSize="10" fontFamily="Arial, sans-serif" textAnchor="middle" fill="#28A745">Health Check</text>
     </svg>
   ),
 
@@ -163,7 +154,6 @@ export const SystemIcons = {
       <line className="db-line" x1="28" y1="48" x2="28" y2="56"/>
       <line className="db-line" x1="50" y1="48" x2="50" y2="56"/>
       <line className="db-line" x1="50" y1="56" x2="64" y2="56"/>
-      <text className="label" x="50" y="90" textAnchor="middle">Relational DB</text>
     </svg>
   ),
 
@@ -176,7 +166,6 @@ export const SystemIcons = {
         <text x="50" y="45" fontFamily="Arial, sans-serif" fontSize="12" fill="#1E88E5" textAnchor="middle" fontWeight="bold">1 0</text>
         <text x="50" y="60" fontFamily="Arial, sans-serif" fontSize="12" fill="#1E88E5" textAnchor="middle" fontWeight="bold">0 1</text>
       </g>
-      <text x="50" y="95" fontFamily="Arial, sans-serif" fontSize="12" fill="#333333" textAnchor="middle">Object Storage</text>
     </svg>
   ),
 
@@ -187,7 +176,6 @@ export const SystemIcons = {
       <path d="M20 50 L80 50 L70 60 L10 60 Z" fill="#7A5BC5" stroke="#5E3EA7" strokeWidth="1.5"/>
       <circle cx="35" cy="25" r="4" fill="#ffffff"/>
       <polygon points="55,21 57,24 60,24 58,26 59,29 55,27 52,29 53,26 51,24 54,24" fill="#ffffff"/>
-      <text x="50" y="85" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#333333">In-Memory Cache</text>
     </svg>
   ),
 
@@ -208,7 +196,6 @@ export const SystemIcons = {
       <circle cx="40" cy="70" r="12" className="mq-fill mq-stroke" />
       <circle cx="70" cy="30" r="10" className="mq-fill mq-stroke" />
       <circle cx="70" cy="60" r="10" className="mq-fill mq-stroke" />
-      <text x="50" y="95" textAnchor="middle" className="mq-text">Message Broker</text>
     </svg>
   ),
 
@@ -224,7 +211,6 @@ export const SystemIcons = {
       <line x1="57" y1="40" x2="75" y2="40" stroke="#1E88E5" strokeWidth="2"/>
       <line x1="43" y1="40" x2="25" y2="40" stroke="#1E88E5" strokeWidth="2"/>
       <line x1="50" y1="48" x2="50" y2="60" stroke="#1E88E5" strokeWidth="2"/>
-      <text x="50" y="92" fontSize="11" fontFamily="Arial, sans-serif" fill="#000" textAnchor="middle">Pub/Sub Event Bus</text>
     </svg>
   ),
 
@@ -256,7 +242,6 @@ export const SystemIcons = {
         <rect x="42" y="19" width="16" height="12" rx="8" fill="none"/>
         <rect x="47.5" y="34" width="5" height="10" rx="2.5" fill="#FFFFFF" stroke="none"/>
       </g>
-      <text x="50" y="110" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000000">Distributed Lock Manager</text>
     </svg>
   ),
 
@@ -279,7 +264,6 @@ export const SystemIcons = {
         <line x1="80" y1="29" x2="80" y2="33"/>
         <line x1="80" y1="53" x2="80" y2="57"/>
       </g>
-      <text x="50" y="95" fontFamily="Arial, sans-serif" fontSize="12" textAnchor="middle" fill="#2e7d32">Microservice</text>
     </svg>
   ),
 
@@ -295,7 +279,6 @@ export const SystemIcons = {
           <path d="M -12.7 -27.2 A 30 30 0 0 1 12.7 -27.2 L 6.3 -13.6 A 15 15 0 0 0 -6.3 -13.6 Z" transform="rotate(300)"/>
         </g>
       </g>
-      <text x="50" y="95" fontFamily="Arial, sans-serif" fontSize="11" textAnchor="middle" fill="#333">Event Sourcing Store</text>
     </svg>
   ),
 
@@ -304,7 +287,6 @@ export const SystemIcons = {
       <rect x="10" y="10" width="70" height="50" rx="6" ry="6" fill="#e0f7fa" stroke="#00796b" strokeWidth="1.5"/>
       <polyline points="15,55 25,40 35,45 45,25 55,35 65,20 75,35" fill="none" stroke="#004d40" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       <circle cx="73" cy="18" r="4" fill="#004d40"/>
-      <text x="45" y="92" fontFamily="Arial, sans-serif" fontSize="11" textAnchor="middle" fill="#004d40">Monitoring</text>
     </svg>
   ),
 
@@ -319,7 +301,6 @@ export const SystemIcons = {
       <line x1="70" y1="35" x2="60" y2="45" stroke="#c9302c" strokeWidth="1.5" />
       <line x1="50" y1="67" x2="50" y2="78" stroke="#c9302c" strokeWidth="1.5" />
       <polyline points="46,74 50,78 54,74" fill="none" stroke="#c9302c" strokeWidth="1.5" />
-      <text x="50" y="94" fontFamily="Arial, sans-serif" fontSize="10" fill="#333333" textAnchor="middle">Dead Letter Queue</text>
     </svg>
   ),
 
@@ -337,7 +318,6 @@ export const SystemIcons = {
       <line x1="50" y1="35" x2="17.5" y2="55" stroke="#CC6600" strokeWidth="1.5" markerEnd="url(#arrow)"/>
       <line x1="50" y1="35" x2="50" y2="55" stroke="#CC6600" strokeWidth="1.5" markerEnd="url(#arrow)"/>
       <line x1="50" y1="35" x2="82.5" y2="55" stroke="#CC6600" strokeWidth="1.5" markerEnd="url(#arrow)"/>
-      <text x="50" y="93" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000000">Sharding / Partitioning</text>
     </svg>
   ),
 
@@ -359,7 +339,6 @@ export const SystemIcons = {
       <circle cx="70" cy="35" r="2" fill="#2e7d32" />
       <circle cx="80" cy="35" r="2" fill="#2e7d32" />
       <line x1="40" y1="32.5" x2="60" y2="32.5" stroke="#2e7d32" strokeWidth="1.5" markerStart="url(#arrow)" markerEnd="url(#arrow)"/>
-      <text x="50" y="85" fontFamily="Arial, sans-serif" fontSize="11" textAnchor="middle" fill="#000">Replication Controller</text>
     </svg>
   ),
 
@@ -385,7 +364,6 @@ export const SystemIcons = {
       <circle cx="50" cy="50" r="6" fill="#FFFFFF" stroke="#E67E22" strokeWidth="1.5"/>
       <line x1="50" y1="50" x2="50" y2="47" stroke="#E67E22" strokeWidth="1.5" strokeLinecap="round"/>
       <line x1="50" y1="50" x2="53" y2="50" stroke="#E67E22" strokeWidth="1.5" strokeLinecap="round"/>
-      <text x="50" y="95" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#333">Backup &amp; Restore</text>
     </svg>
   ),
 
@@ -403,7 +381,6 @@ export const SystemIcons = {
         <circle cx="0" cy="0" r="18" fill="none" stroke="#1e90ff" strokeWidth="2"/>
         <line x1="12" y1="12" x2="22" y2="22" stroke="#1e90ff" strokeWidth="2" strokeLinecap="round"/>
       </g>
-      <text x="50" y="110" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#333">Vulnerability Scanner</text>
     </svg>
   ),
 
@@ -417,7 +394,6 @@ export const SystemIcons = {
       <path d="M50 30 L60 35 L60 50 C60 60 50 65 50 65 C50 65 40 60 40 50 L40 35 Z" fill="#b3ccff" stroke="#1e90ff" strokeWidth="1.5"/>
       <rect x="46" y="43" width="8" height="8" rx="1" fill="none" stroke="#1e90ff" strokeWidth="1.2"/>
       <path d="M49 43 v-3 a3 3 0 0 1 6 0 v3" fill="none" stroke="#1e90ff" strokeWidth="1.2"/>
-      <text x="50" y="90" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#000">Firewall</text>
     </svg>
   ),
 
@@ -431,7 +407,6 @@ export const SystemIcons = {
       <path d="M42 40 v-8 a8 8 0 0 1 16 0 v8" fill="none" stroke="#1a73e8" strokeWidth="2"/>
       <circle cx="50" cy="55" r="4" fill="none" stroke="#1a73e8" strokeWidth="2"/>
       <line x1="50" y1="59" x2="50" y2="64" stroke="#1a73e8" strokeWidth="2"/>
-      <text x="50" y="90" fontSize="10" fontFamily="Arial, sans-serif" fill="#1a73e8" textAnchor="middle">Data Encryption</text>
     </svg>
   ),
 
@@ -444,7 +419,6 @@ export const SystemIcons = {
       <line x1="75" y1="55" x2="75" y2="49" stroke="#0066cc" strokeWidth="2" strokeLinecap="round"/>
       <line x1="66" y1="40" x2="60" y2="40" stroke="#0066cc" strokeWidth="2" strokeLinecap="round"/>
       <line x1="90" y1="40" x2="84" y2="40" stroke="#0066cc" strokeWidth="2" strokeLinecap="round"/>
-      <text x="50" y="92" fontFamily="Arial, sans-serif" fontSize="10" fill="#003366" textAnchor="middle">Authorization / RBAC</text>
     </svg>
   ),
 
@@ -458,7 +432,6 @@ export const SystemIcons = {
       </g>
       <circle cx="30" cy="55" r="4" fill="none" stroke="#2E7D32" strokeWidth="2"/>
       <circle cx="70" cy="55" r="4" fill="none" stroke="#2E7D32" strokeWidth="2"/>
-      <text x="50" y="92" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#2E7D32">Auth Service</text>
     </svg>
   ),
 
@@ -474,7 +447,6 @@ export const SystemIcons = {
       <line x1="80" y1="30" x2="60" y2="60" stroke="#0077cc" strokeWidth="2" strokeLinecap="round"/>
       <circle cx="60" cy="60" r="12" fill="none" stroke="#444" strokeWidth="2"/>
       <line x1="68" y1="68" x2="78" y2="78" stroke="#444" strokeWidth="2" strokeLinecap="round"/>
-      <text x="50" y="92" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000">Traffic Analysis</text>
     </svg>
   ),
 
@@ -488,7 +460,6 @@ export const SystemIcons = {
       <path d="M56 33 L58 35 L62 30" fill="none" stroke="#1e7ed6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M30 30 q-5 5 0 10" fill="none" stroke="#1e7ed6" strokeWidth="1"/>
       <path d="M25 25 q-8 8 0 16" fill="none" stroke="#1e7ed6" strokeWidth="1"/>
-      <text x="50" y="90" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="10" fill="#1e7ed6">Endpoint Detection</text>
     </svg>
   ),
 
@@ -501,7 +472,6 @@ export const SystemIcons = {
       <path d="M50 25 L65 30 L65 45 C65 60 50 70 50 70 C50 70 35 60 35 45 L35 30 Z" fill="#e6f2ff" stroke="#2a7de1" strokeWidth="2"/>
       <line x1="50" y1="38" x2="50" y2="54" stroke="#2a7de1" strokeWidth="2" strokeLinecap="round"/>
       <circle cx="50" cy="60" r="2" fill="#2a7de1"/>
-      <text x="50" y="88" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000">IDS</text>
     </svg>
   ),
 
@@ -519,7 +489,6 @@ export const SystemIcons = {
       <circle cx="60" cy="30" r="2" fill="#1e78c8"/>
       <line x1="60" y1="20" x2="75" y2="20" stroke="#1e78c8" strokeWidth="1.5"/>
       <polygon points="75,20 70,16 70,24" fill="#1e78c8"/>
-      <text x="50" y="88" fontSize="10" fontFamily="Arial, sans-serif" textAnchor="middle" fill="#1e78c8">Realtime Dashboard</text>
     </svg>
   ),
 
@@ -532,7 +501,6 @@ export const SystemIcons = {
       <circle cx="50" cy="57" r="2.5" fill="#fff"/>
       <path d="M70 25c0-4-3-7-7-7s-7 3-7 7c0 5-3 7-3 7h20s-3-2-3-7z" fill="#ffae42" stroke="#d17a00" strokeWidth="1.2"/>
       <circle cx="63" cy="35" r="2" fill="#ffae42" stroke="#d17a00" strokeWidth="1"/>
-      <text x="50" y="92" fontSize="10" textAnchor="middle" fill="#333">Incident Management</text>
     </svg>
   ),
 
@@ -556,7 +524,6 @@ export const SystemIcons = {
       <polygon points="50,40 46,35 54,35" fill="#555"/>
       <line x1="72" y1="32" x2="68" y2="50" stroke="#555" strokeWidth="1.5"/>
       <polygon points="68,50 73,47 73,53" fill="#555"/>
-      <text x="50" y="90" fontFamily="Arial, sans-serif" fontSize="10" textAnchor="middle" fill="#000">Log Management</text>
     </svg>
   ),
 
@@ -568,7 +535,6 @@ export const SystemIcons = {
       <polyline points="26,45 34,35 45,40 55,28 62,32 72,22" fill="none" stroke="#1e78ff" strokeWidth="1.5"/>
       <circle cx="70" cy="35" r="8" fill="none" stroke="#1e78ff" strokeWidth="1.5"/>
       <line x1="75" y1="40" x2="82" y2="47" stroke="#1e78ff" strokeWidth="1.5"/>
-      <text x="50" y="93" fontSize="11" textAnchor="middle" fill="#1e78ff">APM</text>
     </svg>
   ),
 };

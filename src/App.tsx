@@ -15,8 +15,8 @@ function App() {
         </div>
       </header>
 
-      <div className='flex flex-1 main-content'>
-        <div className='w-1/4 bg-white border-r border-gray-200 sidebar-border'>
+      <div className='flex flex-1 overflow-hidden main-content'>
+        <div className='w-1/4 bg-white border-r border-gray-200 overflow-hidden sidebar-border'>
           <Sidebar />
         </div>
         <div className='w-3/4 board-border'>

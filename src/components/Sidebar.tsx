@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
   );
 
   return (
-    <div className='h-full flex flex-col sidebar-container'>
+    <div className='h-full flex flex-col overflow-hidden min-h-0 sidebar-container'>
       <div className='border-b border-gray-200 sidebar-tabs-header'>
         <div className='flex w-full sidebar-tab-buttons'>
           <button
@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
 
-      <div className='flex-1 overflow-y-auto sidebar-content-container'>
+      <div className='flex-1 overflow-y-auto min-h-0 sidebar-content-container'>
         {activeTab === 'ComponentList' ? <ComponentList /> : <Chat />}
       </div>
     </div>
