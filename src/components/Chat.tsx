@@ -5,8 +5,15 @@ import { useBoard } from '../context/BoardContext';
 import { Node as FlowNode, Edge as FlowEdge } from '@xyflow/react';
 
 const Chat: React.FC = () => {
-  const { messages, setMessages, input, setInput, isLoading, setIsLoading } =
-    useChatContext();
+  const { 
+    messages, 
+    setMessages, 
+    input, 
+    setInput, 
+    isLoading, 
+    setIsLoading,
+    saveMessage 
+  } = useChatContext();
 
   // Ref for auto-scrolling
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -67,6 +74,9 @@ const Chat: React.FC = () => {
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
     setIsLoading(true);
+
+    // Save user message to database
+    await saveMessage('user', input);
 
     // Create AI message placeholder
     const aiMessageId = (Date.now() + 1).toString();
@@ -153,6 +163,11 @@ const Chat: React.FC = () => {
             }
           }
         }
+      }
+
+      // Save the final AI response to database
+      if (accumulatedContent) {
+        await saveMessage('assistant', accumulatedContent);
       }
     } catch (error: any) {
       console.error('Error streaming AI response:', error);

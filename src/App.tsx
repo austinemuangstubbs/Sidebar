@@ -5,32 +5,36 @@ import React from 'react';
 import { Settings } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import Board from './components/Board';
-import { BoardContext } from './context/BoardContext';
+import { BoardProvider } from './context/BoardContext';
 import { Node, Edge } from '@xyflow/react';
 import { ChatProvider } from './context/ChatContext';
+import { ProjectProvider } from './context/ProjectContext';
+import ProjectSelector from './components/ProjectSelector';
 
 function App() {
   const [nodes, setNodes] = React.useState<Node[]>([]);
   const [edges, setEdges] = React.useState<Edge[]>([]);
   return (
-    <BoardContext.Provider value={{ nodes, setNodes, edges, setEdges }}>
-      <div className='min-h-screen bg-gradient-to-br from-indigo-800 via-purple-400 to-sky-300'>
-        {/* BG OVERLAY */}
-        <div className='min-h-screen backdrop-blur-sm bg-white/10'>
-          {/* HEADER */}
-          <header className='bg-slate-400/10 backdrop-blur-md border-b border-slate-200/10 px-6 py-4'>
-            <div className='flex items-center justify-between'>
-              <div className='flex items-center space-x-3'>
-                <h1 className='text-5xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent'>
-                  Sidebar
-                </h1>
-              </div>
-              {/* SETTINGS BUTTON */}
-              <div className='flex items-center space-x-3'>
-                <button className='p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-200 hover:scale-105'>
-                  <Settings className='w-6 h-6' />
-                </button>
-              </div>
+    <ProjectProvider>
+      <BoardProvider nodes={nodes} setNodes={setNodes} edges={edges} setEdges={setEdges}>
+        <div className='min-h-screen bg-gradient-to-br from-indigo-800 via-purple-400 to-sky-300'>
+          {/* BG OVERLAY */}
+          <div className='min-h-screen backdrop-blur-sm bg-white/10'>
+            {/* HEADER */}
+            <header className='bg-slate-400/10 backdrop-blur-md border-b border-slate-200/10 px-6 py-4'>
+              <div className='flex items-center justify-between'>
+                <div className='flex items-center space-x-3'>
+                  <h1 className='text-5xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent'>
+                    Sidebar
+                  </h1>
+                </div>
+                {/* SETTINGS BUTTON */}
+                <div className='flex items-center space-x-3'>
+                  <ProjectSelector />
+                  <button className='p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-200 hover:scale-105'>
+                    <Settings className='w-6 h-6' />
+                  </button>
+                </div>
             </div>
           </header>
 
@@ -50,7 +54,8 @@ function App() {
           </div>
         </div>
       </div>
-    </BoardContext.Provider>
+      </BoardProvider>
+    </ProjectProvider>
   );
 }
 
