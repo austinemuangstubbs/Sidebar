@@ -1,5 +1,10 @@
+import React from 'react';
+
+// Provide an explicit type so the imported `React` identifier is referenced
+export type IconComponent = () => React.ReactElement;
+
 // System Component SVG Icons
-export const SystemIcons = {
+export const SystemIcons: Record<string, IconComponent> = {
   'message-queue': () => (
     <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="20" width="80" height="36" rx="6" fill="#E0F0FF" stroke="#1E88E5" strokeWidth="2"/>
