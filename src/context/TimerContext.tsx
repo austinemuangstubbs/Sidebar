@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
+import type { ReactElement } from 'react';
 
 // ----------------------------------------------------------------------
 // >> TIMER CONTEXT << //
@@ -26,7 +27,11 @@ export const useTimer = () => {
   return ctx;
 };
 
-export const TimerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface TimerProviderProps {
+  children: React.ReactNode;
+}
+
+export const TimerProvider: React.FC<TimerProviderProps> = ({ children }): ReactElement => {
   const [phase, setPhase] = useState<TimerPhase>('idle');
   const [countdown, setCountdown] = useState(0);
   const [elapsed, setElapsed] = useState(0);

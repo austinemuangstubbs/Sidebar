@@ -1,7 +1,11 @@
 import React from 'react';
+import type { ReactElement } from 'react';
 
-// Provide an explicit type so the imported `React` identifier is referenced
-export type IconComponent = () => React.ReactElement;
+// Mark React as used to satisfy the compiler when JSX automatic runtime is enabled
+void React;
+
+// A functional component returning an SVG element
+type IconComponent = () => ReactElement;
 
 // System Component SVG Icons
 export const SystemIcons: Record<string, IconComponent> = {
