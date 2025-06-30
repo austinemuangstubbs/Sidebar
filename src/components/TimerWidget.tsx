@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { ReactElement } from 'react';
 import { useTimer } from '../context/TimerContext';
 import {
   AlarmClock,
@@ -15,7 +16,7 @@ const formatTime = (totalSeconds: number) => {
   return `${minutes}:${seconds}`;
 };
 
-const TimerWidget: React.FC = () => {
+const TimerWidget: React.FC = (): ReactElement => {
   const { phase, countdown, elapsed, startTimer, resetTimer } = useTimer();
   const [minutesInput, setMinutesInput] = useState('');
 

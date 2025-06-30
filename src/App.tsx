@@ -2,6 +2,7 @@
 // >> APP << //
 // ----------------------------------------------------------------------
 import React from 'react';
+import type { ReactElement } from 'react';
 import { Settings } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import Board from './components/Board';
@@ -11,7 +12,7 @@ import { ChatProvider } from './context/ChatContext';
 import { TimerProvider } from './context/TimerContext';
 import TimerWidget from './components/TimerWidget';
 
-function App() {
+const App: React.FC = (): ReactElement => {
   const [nodes, setNodes] = React.useState<Node[]>([]);
   const [edges, setEdges] = React.useState<Edge[]>([]);
   return (
@@ -59,6 +60,6 @@ function App() {
       </BoardContext.Provider>
     </TimerProvider>
   );
-}
+};
 
 export default App;
