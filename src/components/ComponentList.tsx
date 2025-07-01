@@ -1,8 +1,9 @@
 // ----------------------------------------------------------------------
 // >> COMPONENT LIST << //
 // ----------------------------------------------------------------------
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useLayoutEffect, useCallback } from 'react';
 import { SystemIcons } from '../assets';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 
 // ----------------------------------------------------------------------
 // >> COMPONENTS << //
@@ -119,6 +120,35 @@ const ComponentList: React.FC = React.memo(() => {
       .includes(searchTerm.toLowerCase())
   );
 
+  // ------------------------------------------------------------
+  // >> LIST HEIGHT CALC << //  Capture wrapper height for react-window
+  // ------------------------------------------------------------
+  const listWrapperRef = useRef<HTMLDivElement>(null);
+  const [wrapperHeight, setWrapperHeight] = useState(0);
+
+  const measureHeight = useCallback(() => {
+    if (listWrapperRef.current) {
+      setWrapperHeight(listWrapperRef.current.clientHeight);
+    }
+  }, []);
+
+  // Measure on mount and resize
+  useLayoutEffect(() => {
+    measureHeight();
+    window.addEventListener('resize', measureHeight);
+    return () => window.removeEventListener('resize', measureHeight);
+  }, [measureHeight]);
+
+  // Row renderer for react-window
+  const Row = ({ index, style }: ListChildComponentProps) => {
+    const component = filteredComponents[index];
+    return (
+      <div style={{ ...style, paddingBottom: 12 }}>
+        <DraggableComponent component={component} />
+      </div>
+    );
+  };
+
   return (
     <div className='h-full flex flex-col'>
       {/* INPUT FIELD OUTSIDE COMPONENT LIST */}
@@ -158,7 +188,7 @@ const ComponentList: React.FC = React.memo(() => {
       )}
 
       {/* SEARCH + COMPONENT GRID */}
-      <div className='flex-1 px-6 pt-4 overflow-y-auto'>
+      <div className='flex-1 px-6 pt-4 flex flex-col'>
         {/* SEARCH BAR */}
         <div className='mb-4'>
           <input
@@ -171,11 +201,19 @@ const ComponentList: React.FC = React.memo(() => {
         </div>
 
         {/* COMPONENTS */}
-        <div className='space-y-3'>
+        <div className='flex-1' ref={listWrapperRef}>
           {filteredComponents.length ? (
-            filteredComponents.map((component) => (
-              <DraggableComponent key={component.id} component={component} />
-            ))
+            wrapperHeight > 0 && (
+              <List
+                height={wrapperHeight}
+                width={'100%'}
+                itemCount={filteredComponents.length}
+                itemSize={88}
+                overscanCount={5}
+              >
+                {Row}
+              </List>
+            )
           ) : (
             <p className='text-sm text-gray-500'>No components found.</p>
           )}
