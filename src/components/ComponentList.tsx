@@ -10,6 +10,10 @@ import { SystemIcons } from '../assets';
 import { systemComponents } from '../data/systemComponents';
 // ----------------------------------------------------------------------
 
+// Virtualized list helpers
+import { FixedSizeList as List } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+
 interface DraggableComponentProps {
   component: (typeof systemComponents)[0];
 }
@@ -21,60 +25,63 @@ const fallbackEmojis: Record<string, string> = {
   'web-server': '🖥️',
 };
 
-const DraggableComponent: React.FC<DraggableComponentProps> = ({
-  component,
-}) => {
-  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
-    event.dataTransfer.setData(
-      'application/reactflow',
-      JSON.stringify(component)
+const DraggableComponent: React.FC<DraggableComponentProps> = React.memo(
+  ({ component }) => {
+    const handleDragStart = React.useCallback(
+      (event: React.DragEvent<HTMLDivElement>) => {
+        event.dataTransfer.setData(
+          'application/reactflow',
+          JSON.stringify(component)
+        );
+        event.dataTransfer.effectAllowed = 'move';
+      },
+      [component]
     );
-    event.dataTransfer.effectAllowed = 'move';
-  };
 
-  return (
-    <div
-      draggable
-      onDragStart={handleDragStart}
-      className={`
-        ${component.color} ${component.hoverColor}
-        border rounded-xl p-1 cursor-grab active:cursor-grabbing
-        transition-all duration-200 hover:shadow-lg hover:scale-[1.02]
-        hover:-translate-y-1 group
-      `}
-    >
-      <div className='flex items-center space-x-3'>
-        {/* Icon w/ SVG or fallback to emoji */}
-        <div className='flex-shrink-0 flex items-center h-10'>
-          {SystemIcons[component.icon as keyof typeof SystemIcons] ? (
-            <div className='w-10 h-10 flex items-center justify-center'>
-              {SystemIcons[component.icon as keyof typeof SystemIcons]()}
-            </div>
-          ) : (
-            <div className='w-10 h-10 rounded-lg bg-white/50 flex items-center justify-center text-lg'>
-              {fallbackEmojis[component.icon] || component.icon}
-            </div>
-          )}
-        </div>
-
-        {/* CONTENT */}
-        <div className='flex-1 min-w-0'>
-          <div className='flex items-center justify-between mb-1'>
-            <h3 className='font-semibold text-gray-800 text-sm leading-tight'>
-              {component.name}
-            </h3>
-            <span className='text-xs px-2 py-1 rounded-full bg-white/60 text-gray-600 font-medium'>
-              {component.category}
-            </span>
+    return (
+      <div
+        draggable
+        onDragStart={handleDragStart}
+        className={`
+          ${component.color} ${component.hoverColor}
+          border rounded-xl p-1 cursor-grab active:cursor-grabbing
+          transition-all duration-200 hover:shadow-lg hover:scale-[1.02]
+          hover:-translate-y-1 group
+        `}
+      >
+        <div className='flex items-center space-x-3'>
+          {/* Icon w/ SVG or fallback to emoji */}
+          <div className='flex-shrink-0 flex items-center h-10'>
+            {SystemIcons[component.icon as keyof typeof SystemIcons] ? (
+              <div className='w-10 h-10 flex items-center justify-center'>
+                {SystemIcons[component.icon as keyof typeof SystemIcons]()}
+              </div>
+            ) : (
+              <div className='w-10 h-10 rounded-lg bg-white/50 flex items-center justify-center text-lg'>
+                {fallbackEmojis[component.icon] || component.icon}
+              </div>
+            )}
           </div>
-          <p className='text-xs text-gray-600 leading-relaxed'>
-            {component.description}
-          </p>
+
+          {/* CONTENT */}
+          <div className='flex-1 min-w-0'>
+            <div className='flex items-center justify-between mb-1'>
+              <h3 className='font-semibold text-gray-800 text-sm leading-tight'>
+                {component.name}
+              </h3>
+              <span className='text-xs px-2 py-1 rounded-full bg-white/60 text-gray-600 font-medium'>
+                {component.category}
+              </span>
+            </div>
+            <p className='text-xs text-gray-600 leading-relaxed'>
+              {component.description}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 const ComponentList: React.FC = () => {
   const uniqueComponents = Array.from(
@@ -160,7 +167,7 @@ const ComponentList: React.FC = () => {
       )}
 
       {/* SEARCH + COMPONENT GRID */}
-      <div className='flex-1 px-6 pt-4 overflow-y-auto'>
+      <div className='flex-1 px-6 pt-4 overflow-hidden'>
         {/* SEARCH BAR */}
         <div className='mb-4'>
           <input
@@ -173,15 +180,27 @@ const ComponentList: React.FC = () => {
         </div>
 
         {/* COMPONENTS */}
-        <div className='space-y-3'>
-          {filteredComponents.length ? (
-            filteredComponents.map((component) => (
-              <DraggableComponent key={component.id} component={component} />
-            ))
-          ) : (
-            <p className='text-sm text-gray-500'>No components found.</p>
-          )}
-        </div>
+        {filteredComponents.length ? (
+          <AutoSizer>
+            {({ height, width }: { height: number; width: number }) => (
+              <List
+                height={height}
+                width={width}
+                itemCount={filteredComponents.length}
+                itemSize={112} // approximate row height incl. margin
+                itemKey={(index: number) => filteredComponents[index].id}
+              >
+                {({ index, style }: { index: number; style: React.CSSProperties }) => (
+                  <div style={style} className='mb-3'>
+                    <DraggableComponent component={filteredComponents[index]} />
+                  </div>
+                )}
+              </List>
+            )}
+          </AutoSizer>
+        ) : (
+          <p className='text-sm text-gray-500'>No components found.</p>
+        )}
       </div>
     </div>
   );
