@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentItem } from "./ComponentList";
+import { ComponentItem } from "../types";
 
 export interface ComponentCardProps {
   component: ComponentItem;

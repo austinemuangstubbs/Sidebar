@@ -2,12 +2,7 @@ import React from "react";
 import { FixedSizeList as List, ListChildComponentProps } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import ComponentCard from "./ComponentCard";
-
-// TODO: Replace 'any' with your actual component type
-export interface ComponentItem {
-  id: string | number;
-  // ...add other fields as required
-}
+import { ComponentItem } from "../types";
 
 export interface ComponentListProps {
   components: ComponentItem[];
