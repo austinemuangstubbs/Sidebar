@@ -1,9 +1,8 @@
 // ----------------------------------------------------------------------
 // >> COMPONENT LIST << //
 // ----------------------------------------------------------------------
-import React, { useState, useRef, useLayoutEffect, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import { SystemIcons } from '../assets';
-import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 
 // ----------------------------------------------------------------------
 // >> COMPONENTS << //
@@ -121,33 +120,13 @@ const ComponentList: React.FC = React.memo(() => {
   );
 
   // ------------------------------------------------------------
-  // >> LIST HEIGHT CALC << //  Capture wrapper height for react-window
+  // NOTE: We previously measured the wrapper height and used
+  // react-window for virtualisation. That caused visible blanks
+  // during momentum scrolling because items weren't rendered until
+  // the scroll physics settled. The component list is small enough
+  // that we can safely render everything at once. This eliminates
+  // the latency without any noticeable perf hit.
   // ------------------------------------------------------------
-  const listWrapperRef = useRef<HTMLDivElement>(null);
-  const [wrapperHeight, setWrapperHeight] = useState(0);
-
-  const measureHeight = useCallback(() => {
-    if (listWrapperRef.current) {
-      setWrapperHeight(listWrapperRef.current.clientHeight);
-    }
-  }, []);
-
-  // Measure on mount and resize
-  useLayoutEffect(() => {
-    measureHeight();
-    window.addEventListener('resize', measureHeight);
-    return () => window.removeEventListener('resize', measureHeight);
-  }, [measureHeight]);
-
-  // Row renderer for react-window
-  const Row = ({ index, style }: ListChildComponentProps) => {
-    const component = filteredComponents[index];
-    return (
-      <div style={{ ...style, paddingBottom: 12 }}>
-        <DraggableComponent component={component} />
-      </div>
-    );
-  };
 
   return (
     <div className='h-full flex flex-col'>
@@ -201,19 +180,11 @@ const ComponentList: React.FC = React.memo(() => {
         </div>
 
         {/* COMPONENTS */}
-        <div className='flex-1' ref={listWrapperRef}>
+        <div className='flex-1 overflow-y-auto space-y-3 pr-1'>
           {filteredComponents.length ? (
-            wrapperHeight > 0 && (
-              <List
-                height={wrapperHeight}
-                width={'100%'}
-                itemCount={filteredComponents.length}
-                itemSize={88}
-                overscanCount={5}
-              >
-                {Row}
-              </List>
-            )
+            filteredComponents.map((comp) => (
+              <DraggableComponent key={comp.id} component={comp} />
+            ))
           ) : (
             <p className='text-sm text-gray-500'>No components found.</p>
           )}
