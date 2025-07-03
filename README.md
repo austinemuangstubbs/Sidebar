@@ -17,17 +17,17 @@ Sidebar is an interactive web application that transforms system design intervie
 
 ### Interactive Component Board
 
-![Sidebar Component Board](screenshots/component-board.png)
+![Sidebar Component Board](gifs/Sidebar_ComponentsList.gif)
 _Drag-and-drop interface with categorized system components (Network, Security, Compute) for building architecture diagrams_
 
 ### AI Interview Assistant
 
-![AI Interview Interface](screenshots/ai-interface.png)
+![AI Interview Interface](gifs/Sidebar_AIChat.gif)
 _Intelligent chat interface that conducts realistic system design interviews with contextual questioning_
 
 ### Complete Architecture Design
 
-![System Architecture Example](screenshots/architecture-example.png)
+![System Architecture Example](gifs/Sidebar_ComponentBoard.gif)
 _Example of a completed system design showing load balancer distributing traffic to multiple web servers connected to relational databases_
 
 ## ✨ Key Features
